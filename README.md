@@ -1,0 +1,1 @@
+# Beagyazott-rendszerek-szoftvertechnologiaja
