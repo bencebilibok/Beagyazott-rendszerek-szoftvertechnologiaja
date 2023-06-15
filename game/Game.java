@@ -1,6 +1,6 @@
 package game;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -32,6 +32,10 @@ public class Game extends Thread {
 	
 	public G_Manager manager;
 	private long multicastTimeInterval = 50;// 50 ms
+
+	private int portConfig;
+
+	private int addressConfig;
 	
 	
 	public Game(int maxPlayers, int inputPort) throws IOException {
@@ -65,6 +69,30 @@ public class Game extends Thread {
 	}
 
 	public void addClient(String address, int port) throws IOException, InterruptedException {
+		File file = new File(
+				"C:\\Users\\bence\\Desktop\\config.txt");
+
+		BufferedReader br
+				= null;
+		try {
+			br = new BufferedReader(new FileReader(file));
+		} catch (FileNotFoundException e) {
+			throw new RuntimeException(e);
+		}
+
+		String st;
+		while (true)
+
+		{
+			try {
+				if (!((st = br.readLine()) != null)) break;
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+
+			this.addressConfig = Integer.parseInt(st);
+
+		}
 		if (this.hasRoom() && waitForClients){
 			Snake s=remainingSnakes.removeFirst();
 			snakesAtStart.add(s);

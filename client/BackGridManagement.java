@@ -22,7 +22,6 @@ class BackGridManagement implements Runnable {
 		try {
 			while (true) {
 				Pair<HashMap<Byte, Snake>, Point> req = (Pair<HashMap<Byte, Snake>, Point>) gridJobs.take();
-				// System.out.print("We received a package of snakes... ");
 				byte[][] backgrid = calcBackGrid(req.a);
 				backgrid[req.b.x][req.b.y] = ManagementDisplay.APPLE;
 				gameDisplay.swap(backgrid);

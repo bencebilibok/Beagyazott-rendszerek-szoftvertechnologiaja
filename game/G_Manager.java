@@ -27,7 +27,6 @@ public class G_Manager implements Runnable {
 	public G_Manager(Game g, int inputPort, long multicastTimeInterval)
 			throws IOException {
 
-		System.out.println("G_Manager has been initialized:");
 
 		thisGame = g;
 		in_communicator = new ArrayBlockingQueue<Job>(100);

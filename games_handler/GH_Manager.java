@@ -37,7 +37,7 @@ public class GH_Manager implements Runnable{
 
 		output=new Thread(new GH_Output(outputPort, serverName, broadcastTimeInterval, inputPort));
 
-		nextPortToUseForGame=30000;
+			nextPortToUseForGame=30000;
 	}
 
 	@Override

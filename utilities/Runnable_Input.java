@@ -1,6 +1,6 @@
 package utilities;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -25,7 +25,7 @@ public class Runnable_Input extends UDP_Listener implements Runnable {
 				InetSocketAddress remote = listen(buffer);// a buffer feltöltése
 				buffer.flip();
 				Job j = new Job(buffer, remote.getHostName());
-				communicator.put(j);// a job küldése a kommunikátoron keresztül
+				communicator.put(j);//job küldése a kommunikátoron keresztül
 				buffer.clear();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -33,7 +33,6 @@ public class Runnable_Input extends UDP_Listener implements Runnable {
 				e.printStackTrace();
 			}
 		}
-
 	}
 
 }
